@@ -14,5 +14,5 @@ and searching for *clear activity history*. On the Activity history settings pag
 Alternatively, if you don't want your activity history stored, uncheck *Store my activity history on this device*.
 
 See Also:
-https://winaero.com/blog/disable-timeline-windows-10/ 
-https://winaero.com/blog/clear-activity-history-windows-10/
+- https://winaero.com/blog/disable-timeline-windows-10/ 
+- https://winaero.com/blog/clear-activity-history-windows-10/
