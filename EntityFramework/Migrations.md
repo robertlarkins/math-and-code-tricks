@@ -43,6 +43,8 @@ public partial class Change_Column_UniqueCode_To_Guid : Migration
 	}
 }
 ```
+In the sql code remember to double quote table and column names that need it, such as if they are uppercase, or are keywords.
+
 Then run `Update-Database` to apply the migration.
 
 Alternatively, you can go to the database and apply the conversion directly, but this is not desirable as
