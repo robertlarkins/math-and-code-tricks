@@ -107,6 +107,12 @@ See:
  - https://github.com/FluentValidation/FluentValidation/issues/1006
  - https://docs.fluentvalidation.net/en/latest/custom-validators.html#reusable-property-validators
 
+When using nullable reference types with `SetValidator`, then the type on the abstract validator also needs to be nullabe to match the property. But the `NotNull` check prior to `SetValidator` is still needed. The Validator is still entered if the property is null, but doing `RuleFor(x => x).NotNull()` doesn't capture the null case. The Rules in the validator need to use the _null forgiving operator_ (`!`) to stop compiler warnings, but will work when the property is either null or non-null. Eg: `RuleFor(x => x!.SubProperty).GreaterThanOrEqualTo(0)`.
+
+See:
+ - https://github.com/FluentValidation/FluentValidation/issues/1168
+
+
 # Reason why the validator might not work
 The `AbstractValidator` works on the param that is past into the API action, not on the object passed by Mediatr. This is because FluentValidations intercepts the param before the Action is called. Therefore the validator must be defined for the param type. If the param type is an int (such as for an id), then the `AbstractorValidator` generic type should be `int`, but this isn't appropriate as it will be applied to all API endpoints that take in an int param.
 
