@@ -99,3 +99,6 @@ public class UploadAnimalDetailsCommandValidator : AbstractValidator<UploadAnima
     } 
 }
 ```
+
+# Reason why the validator might not work
+The `AbstractValidator` works on the param that is past into the API action, not on the object passed by Mediatr. This is because FluentValidations intercepts the param before the Action is called. Therefore the validator must be defined for the param type. If the param type is an int (such as for an id), then the `AbstractorValidator` generic type should be `int`, but this isn't appropriate as it will be applied to all API endpoints that take in an int param.
