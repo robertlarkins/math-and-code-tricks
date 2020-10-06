@@ -55,13 +55,9 @@ public class UploadAnimalDetailsCommandValidator : AbstractValidator<UploadAnima
             var existingAnimalIds = dbContext.Animals.Where(x => animalIds.Contains(x.Id)).Select(x => x.Id);
             var nonexistentIds = animalIds.Except(existingAnimalIds).ToList();
 
-            if (nonexistentIds.Any())
-            {
-                context.MessageFormatter.AppendArgument("AnimalIds", string.Join(", ", nonexistentIds));
-                return false;
-            }
+            context.MessageFormatter.AppendArgument("AnimalIds", string.Join(", ", nonexistentIds));
 
-            return true;
+            return !nonexistentIds.Any();
         }
     }
 }
@@ -99,6 +95,39 @@ public class UploadAnimalDetailsCommandValidator : AbstractValidator<UploadAnima
     } 
 }
 ```
+
+## `.Must`
+The `.Must` method is a quick way for adding in a custom validator, such as `.Must(x => x > 3)`.
+The `Func` used in the `.Must` can be expanded inline or shifted to a `bool` method, and take in the rootObject, propertyValue, and the PropertyValidatorContext.
+This allows more customisation for both the validation logic and the message. See here: https://docs.fluentvalidation.net/en/latest/custom-validators.html#custom-message-placeholders
+
+If the validator in the `.Must` needs to be reusuable, it can be shifted to an extension method and make generic. See here: https://docs.fluentvalidation.net/en/latest/custom-validators.html#predicate-validator
+
+An example of this is:
+```C#
+public static IRuleBuilderOptions<TRoot, IList<TElement>> MustBeUnique<TRoot, TElement>(
+    this IRuleBuilder<TRoot, IList<TElement>> ruleBuilder,
+    Func<TElement, string> elementComparer)
+{
+    return ruleBuilder.Must(
+        (rootObject, list, context) =>
+        {
+            var duplicates = list
+                .GroupBy(elementComparer)
+                .Where(g => g.Count() > 1)
+                .Select(x => x.Key)
+                .ToList();
+
+            var joinedDuplicates = string.Join(", ", duplicates);
+            context.MessageFormatter.AppendArgument("Duplicates", joinedDuplicates);
+
+            return !duplicates.Any();
+        }).WithMessage("The following '{PropertyName}' are duplicated: {Duplicates}");
+}
+```
+
+## `.Custom`
+The `.Custom` method is like `.Must` but gives more power. See here: https://docs.fluentvalidation.net/en/latest/custom-validators.html#writing-a-custom-validator
 
 ## `SetValidator`
 This is used to provide a custom validator for a property (typically a class that needs its own validations). If this property can be null, then there should be a `NotNull()` check before `SetValidator`, as `SetValidator` requires a non-null input, and wont be called on an input that is null.
