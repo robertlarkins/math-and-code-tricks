@@ -19,6 +19,11 @@ This can be done
 pihole -r
 ```
 
+## Diagnosis
+```console
+pihole -d
+```
+
 ### Cannot access internet
 If the Pi-hole is unable to access the internet, it could be that the gateway has changed, or there has been a change from IPv4 to IPv6.
 
