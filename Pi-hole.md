@@ -40,7 +40,9 @@ To fix the dhcpcd.conf delete these lines, then reboot the Pi-hole by running th
 sudo reboot
 ```
 
-the file /etc/pihole/setupVars.conf may need to be updated to match as well.
+the file `/etc/pihole/setupVars.conf` may need to be updated to match as well.
+So use `sudo nano /etc/pihole/setupVars.conf` to access it and change the IPv4 and IPv6 addresses to match the ips assigned to the device.
+These can be found by looking at your routers configuration and seeing what ips it gave to the Pi-hole (whatever its hostname is called).
 
 ## Update
 Log into the raspberrypi console and run the command:
