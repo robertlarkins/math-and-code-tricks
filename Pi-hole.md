@@ -40,6 +40,8 @@ To fix the dhcpcd.conf delete these lines, then reboot the Pi-hole by running th
 sudo reboot
 ```
 
+the file /etc/pihole/setupVars.conf may need to be updated to match as well.
+
 ## Update
 Log into the raspberrypi console and run the command:
 
