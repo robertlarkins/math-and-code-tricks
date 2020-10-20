@@ -53,4 +53,8 @@ pihole -up
 
 The following are possible urls for accessing the Pi-hole Admin Console:
  - [ip6]/admin
- - 
+
+If the admin console is not working, it may need to be restarted by running
+```console
+sudo service lighttpd restart
+```
