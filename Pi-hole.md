@@ -60,3 +60,9 @@ If the admin console is not working, it may need to be restarted by running
 ```console
 sudo service lighttpd restart
 ```
+
+## Router Setup
+
+### DNS
+The router may require two DNS servers, you can just repeat the ip for Pi-hole twice. This will ensure that all DNS requests go through the Pi-hole,
+but if Pi-hole goes down, then DNS requests will not be resolved. As long as you are aware that this might happen, set both DNS servers to the Pi-hole.
