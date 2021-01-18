@@ -13,3 +13,10 @@
 ### Hardware Monitoring
  - [Open Hardware Monitor](https://openhardwaremonitor.org/)  
    A no install hardware monitoring software, useful for checking CPU temperature.
+
+### Media Players
+ - VLC Media Player
+ - FastStone Image View
+
+### Editors
+ - Paint.Net
