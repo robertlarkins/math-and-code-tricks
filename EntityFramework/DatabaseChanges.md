@@ -15,4 +15,4 @@ See:
  - https://stack247.wordpress.com/2015/06/18/rename-table-and-column-name-in-ef-code-first/
  - https://www.learnentityframeworkcore.com/configuration/fluent-api/totable-method
  - https://stackoverflow.com/questions/21656617/entity-framework-code-first-changing-a-table-name
- 
+ - https://stackoverflow.com/questions/13296996/entity-framework-migrations-renaming-tables-and-columns
