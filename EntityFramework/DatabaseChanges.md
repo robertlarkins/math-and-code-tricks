@@ -8,7 +8,9 @@ To make the change requires two steps (this is for when FluentAPI is used):
 
 1. Temporarily add `modelBuilder.Entity<YourEntity>().ToTable("new_name");` to the entity's configuration, then run `add-migration`.
    This creates a migration that renames the table and the associated foreign keys, allowing existing data to be maintained.
-   Once done the `ToTable()` addition can be removed.
+   Once done the `ToTable()` addition can be removed.  
+   > Note:  
+   > Ensure that the DbSet property in the dbContext.cs reflects the new name.
 2. Rename the entity class to the desired name.
    
 See:
