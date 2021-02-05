@@ -42,3 +42,24 @@ builder.OwnsOne(p => p.MyValueObjectProperty, p =>
 });
 ```
 change the value in the HasColumnName extension method. Run a migration, then change the shadow property name.
+
+### Navigation Properties Using a Shadow Property for Id
+
+If a column is based on a shadow property, such as if a Navigation Property is defined:
+```C#
+modelBuilder.Entity<YourEntity>().HasOne(p => p.SomeNavigationProperty).WithMany();
+```
+then shadow property for the foreign key will be `SomeNavigationPropertyId` (or some autmatically generated equivalent).
+To rename this property, add the following FluentAPI:
+```C#
+builder.Property("SomeNavigationPropertyId").HasColumnName("SomeNavigationPropertyId");
+```
+if `add-migration` is now run, there should be no migration changes. Now if the name is changed
+
+```C#
+builder.Property("SomeNavigationPropertyId").HasColumnName("MyNewId");
+```
+the migration should rename the column to the new name.
+
+> Note:
+> This column renaming might have to take place before other changes, otherwise `add-migration` might drop and and the column, potentially losing data.
