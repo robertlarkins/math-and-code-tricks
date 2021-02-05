@@ -18,3 +18,27 @@ See:
  - https://www.learnentityframeworkcore.com/configuration/fluent-api/totable-method
  - https://stackoverflow.com/questions/21656617/entity-framework-code-first-changing-a-table-name
  - https://stackoverflow.com/questions/13296996/entity-framework-migrations-renaming-tables-and-columns
+
+## Renaming Columns
+This is similar to renaming tables. Simply changing properties and running `add-migration` will likely cause the existing column to be dropped and readded, causing it to lose whatever data was in it.
+
+To make the change requires two steps (this is for when FluentAPI is used):
+
+1. Temporarily add or change (if already in place) the `HasColumnName("new_column_name")` extension on
+`modelBuilder.Entity<YourEntity>().Property(p => p.SomeProperty);` or equivalent FluentAPI.
+
+2. Rename the properties or other items associated with this column.
+
+
+For example if it is a shadow property in an OwnsOne, when a ValueObject has an Entity:
+```C#
+builder.OwnsOne(p => p.MyValueObjectProperty, p =>
+{
+    p.Property<int>("ChildEntityId")
+        .HasColumnName("ChildEntityId");
+    p.Property(pp => pp.SomeOtherProperty).HasColumnName("another_property");
+    p.HasOne(pp => pp.ChildEntity).WithMany()
+        .HasForeignKey("ChildEntityId");
+});
+```
+change the value in the HasColumnName extension method. Run a migration, then change the shadow property name.
