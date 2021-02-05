@@ -63,3 +63,6 @@ the migration should rename the column to the new name.
 
 > Note:
 > This column renaming might have to take place before other changes, otherwise `add-migration` might drop and and the column, potentially losing data.
+
+See:
+ - https://github.com/dotnet/efcore/issues/5893
