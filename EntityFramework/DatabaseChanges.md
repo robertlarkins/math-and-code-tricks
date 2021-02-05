@@ -41,7 +41,7 @@ builder.OwnsOne(p => p.MyValueObjectProperty, p =>
         .HasForeignKey("ChildEntityId");
 });
 ```
-change the value in the HasColumnName extension method. Run a migration, then change the shadow property name.
+change the value in the `HasColumnName` extension method. Run a migration, then change the shadow property name.
 
 ### Navigation Properties Using a Shadow Property for Id
 
