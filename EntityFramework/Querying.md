@@ -66,6 +66,10 @@ For example if we were wanting to find a company based on say CompanyOwner and A
 We could first query for CompanyOwner, and use the found entity to restrict the query on Company. While this might be two calls, it may avoid
 needing to do client-side evaluation.
 
+> Note:
+> Some ValueObjects, such as ValueObjects for wrapping a DateTime value, do not appear to work in an Entity Framework query, even when using their underlying value.
+> In this situation client-side seems to be the only solution.
+
 See:
  - https://stackoverflow.com/questions/58074844/ef-linq-error-after-change-from-dotnet-core-2-2-6-to-3-0-0
  - https://docs.microsoft.com/en-us/ef/core/querying/client-eval
