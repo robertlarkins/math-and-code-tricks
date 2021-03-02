@@ -57,8 +57,13 @@ var foundCompany = context.Companies.ToList().SingleOrDefault(company => company
 ```
 
 Alternatively the query could be broken into two or more stages, with the first stage bringing back the data restricted to one piece of the query.
-This may allow a client-side evaluation to be performed with a dataset that is reduced in size. This may be necessary if the query is being peformed
-on an entity with a Navigation Property.
+This may allow a client-side evaluation to be performed with a dataset that is reduced in size.
+This may be necessary if the query is being peformed on a Navigation Property of an entity, in which case, find the Navigation Property entity and 
+use it in a subsequent query call.
+
+For example if we were wanting to find a company based on say CompanyOwner and Address, and CompanyOwner was a Navigation Property on Company.
+We could first query for CompanyOwner, and use the found entity to restrict the query on Company. While this might be two calls, it may avoid
+needing to do client-side evaluation.
 
 See:
  - https://stackoverflow.com/questions/58074844/ef-linq-error-after-change-from-dotnet-core-2-2-6-to-3-0-0
