@@ -11,10 +11,15 @@
  - https://stackoverflow.com/questions/61691178/no-backing-field-could-be-found-for-property-of-entity-type-and-the-property-doe
 
 ## Error Messages
+
+### Error 1
+
 > No backing field could be found for property 'Abc' of entity type 'Xyz' and the property does not have a getter.
 Entity framework is unable to convert the comparison of an owned-entity into SQL. The solution is to explicitely compare each property.
 
 See: https://stackoverflow.com/questions/61691178/no-backing-field-could-be-found-for-property-of-entity-type-and-the-property-doe
+
+### Error 2
 
 > The LINQ expression
 > *The Entity Framework LINQ expression*
@@ -41,7 +46,7 @@ var foundCompany = context.Companies.SingleOrDefault(company =>
 
 See below for what `Company` and `Address` look like.
 
-The second approach is to perform explicit client-side evaluation, which pulls the data from the db into client-side memory and evaluates it there.
+Another approach is to perform explicit client-side evaluation, which pulls the data from the db into client-side memory and evaluates it there.
 This is not recommended as it can have a detrimental impact on performance if there is a lot of data. This requires adding something like `ToList()`
 into the query to pull back the data. It could be done like this:
 
@@ -51,8 +56,14 @@ var someAddress = Address.Create(123, "Fake St", SpringField).Value;
 var foundCompany = context.Companies.ToList().SingleOrDefault(company => company.Address == someAddress);
 ```
 
+Alternatively the query could be broken into two or more stages, with the first stage bringing back the data restricted to one piece of the query.
+This may allow a client-side evaluation to be performed with a dataset that is reduced in size. This may be necessary if the query is being peformed
+on an entity with a Navigation Property.
+
 See:
  - https://stackoverflow.com/questions/58074844/ef-linq-error-after-change-from-dotnet-core-2-2-6-to-3-0-0
+ - https://docs.microsoft.com/en-us/ef/core/querying/client-eval
+
 
 ### Company Entity and Address ValueObject
 
