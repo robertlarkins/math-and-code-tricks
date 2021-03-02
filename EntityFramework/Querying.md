@@ -56,10 +56,11 @@ var someAddress = Address.Create(123, "Fake St", SpringField).Value;
 var foundCompany = context.Companies.ToList().SingleOrDefault(company => company.Address == someAddress);
 ```
 
-Alternatively the query could be broken into two or more stages, with the first stage bringing back the data restricted to one piece of the query.
-This may allow a client-side evaluation to be performed with a dataset that is reduced in size.
-This may be necessary if the query is being peformed on a Navigation Property of an entity, in which case, find the Navigation Property entity and 
-use it in a subsequent query call.
+Alternatively the query could be broken into two or more stages, with the first stage bringing back data restricted to a piece of the query.
+This may allow a client-side evaluation to be performed with a reduced dataset.
+
+This may be necessary if the query is being peformed on a Navigation Property of an entity, in which case, find the Navigation Property entity.
+This retrieved entity (or entity list) can then be used in a subsequent query call, and the resulting retrieved data being evaluated on the client-side.
 
 For example if we were wanting to find a company based on say CompanyOwner and Address, and CompanyOwner was a Navigation Property on Company.
 We could first query for CompanyOwner, and use the found entity to restrict the query on Company. While this might be two calls, it may avoid
