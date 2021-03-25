@@ -30,17 +30,15 @@ public partial class Change_Column_UniqueCode_To_Guid : Migration
   private const string UniqueCodeStringToGuid = @"ALTER TABLE ""user"" ALTER COLUMN unique_code TYPE uuid USING unique_code::uuid;";
   private const string UniqueCodeGuidToString = @"ALTER TABLE ""user"" ALTER COLUMN unique_code TYPE text USING unique_code::text;";
 
-	protected override void Up(MigrationBuilder migrationBuilder)
-	{
-		// Either empty, or automatically generated migration code
-    // to update the database state from the last migration to this one.
-	}
+  protected override void Up(MigrationBuilder migrationBuilder)
+  {
+    migrationBuilder.Sql(UniqueCodeStringToGuid);
+  }
 
-	protected override void Down(MigrationBuilder migrationBuilder)
-	{
-		// Either empty, or automatically generated migration code
-    // to revert the database state from this migration back to the last one.
-	}
+  protected override void Down(MigrationBuilder migrationBuilder)
+  {
+    migrationBuilder.Sql(UniqueCodeGuidToString);
+  }
 }
 ```
 In the sql code remember to double quote table and column names that need it, such as if they are uppercase, or are keywords.
