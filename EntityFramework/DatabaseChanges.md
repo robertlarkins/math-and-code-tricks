@@ -25,7 +25,7 @@ This is similar to renaming tables. Simply changing properties and running `add-
 To make the change requires two steps (this is for when FluentAPI is used):
 
 1. Temporarily add or change (if already in place) the `HasColumnName("new_column_name")` extension on
-`modelBuilder.Entity<YourEntity>().Property(p => p.SomeProperty);` or equivalent FluentAPI.
+`modelBuilder.Entity<YourEntity>().Property(p => p.SomeProperty);` or equivalent FluentAPI. Then run `add-migration`.
 
 2. Rename the properties or other items associated with this column.
 
