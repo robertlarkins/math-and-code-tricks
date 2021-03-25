@@ -71,8 +71,10 @@ builder.RegisterInstance(SystemClock.Instance).As<IClock>().SingleInstance();
 
 ## WebAPI NodaTime serialisation
 To allow the NodaTime objects to be serialised into recognised format, such as an ISO 8601 string, there are two possible NuGet packages needed,
-either `NodaTime.Serialization.JsonNet` or `NodaTime.Serialization.SystemTextJson`
-add the  NuGet package to the project that contains the Asp.Net controllers. Then in `Startup.cs` add the following:
+either `NodaTime.Serialization.JsonNet` which is used for Json.NET (Newtonsoft.Json) or `NodaTime.Serialization.SystemTextJson` for Microsoft's System.Text.Json.
+The needed NuGet package is then installed into the project that contains the Asp.Net controllers.
+
+Then in `Startup.cs` add the following:
 
 For `NodaTime.Serialization.SystemTextJson` use the following:
 ```C#
