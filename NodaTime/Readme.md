@@ -70,6 +70,22 @@ builder.RegisterInstance(SystemClock.Instance).As<IClock>().SingleInstance();
 ```
 
 ## WebAPI NodaTime serialisation
+To allow the NodaTime objects to be serialised into recognised format, such as an ISO 8601 string, there are two possible NuGet packages needed,
+either `NodaTime.Serialization.JsonNet` or `NodaTime.Serialization.SystemTextJson`
+add the  NuGet package to the project that contains the Asp.Net controllers. Then in `Startup.cs` add the following:
 
+For `NodaTime.Serialization.SystemTextJson` use the following:
+```C#
+services.AddControllers()
+  .AddJsonOptions(options =>
+  {
+    options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
+  });
+```
+
+See: 
+- https://nodatime.org/3.0.x/userguide/serialization
+- https://www.debugcn.com/en/article/41235923.html
+- https://stackoverflow.com/questions/64681525/how-to-setup-nodatime-json-serializer-in-asp-net-core-3-1
 
 [1]: https://wiki.postgresql.org/wiki/Don't_Do_This#Date.2FTime_storage)
