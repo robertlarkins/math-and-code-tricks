@@ -90,4 +90,45 @@ See:
 - https://www.debugcn.com/en/article/41235923.html
 - https://stackoverflow.com/questions/64681525/how-to-setup-nodatime-json-serializer-in-asp-net-core-3-1
 
+## SwashBuckle NodaTime Type Representation
+Swagger does not display the NodaTime type correctly in its example.
+For example, the LocalDate by default is given as
+```
+"someLocalDate": {
+    "calendar": {
+        "id": "string",
+        "name": "string",
+        "minYear": 0,
+        "maxYear": 0,
+        "eras": [
+            {
+              "name": "string"
+            }
+          ]
+        },
+    "year": 0,
+    "month": 0,
+    "day": 0,
+    "dayOfWeek": 0,
+    "yearOfEra": 0,
+    "era": {
+        "name": "string"
+    },
+    "dayOfYear": 0
+}
+```
+when it should simply be
+```
+"someLocalDate": "2020-07-21"
+```
+
+To fix this there are (at least) two possible NuGet packages that can be installed:
+ - [`Swashbuckle.NodaTime.AspNetCore`](https://github.com/buvinghausen/Swashbuckle.NodaTime.AspNetCore)
+ - [`MicroElements.Swashbuckle.NodaTime`](https://github.com/micro-elements/MicroElements.Swashbuckle.NodaTime)
+   This is the better choice if SystemTextJson is being used.
+
+These links provide instructions for how to setup.
+
+
+
 [1]: https://wiki.postgresql.org/wiki/Don't_Do_This#Date.2FTime_storage)
