@@ -66,3 +66,11 @@ the migration should rename the column to the new name.
 
 See:
  - https://github.com/dotnet/efcore/issues/5893
+
+## Map column to a column in a split table
+If a table has a normal column, which needs to be shifted to a column in a split table, such as an owned entity used by complex value objects, then the following can be done.
+
+Add the new column in while maintaining the old column,
+copy the data from the old column to the new column,
+remove the old column.
+
