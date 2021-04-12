@@ -95,3 +95,29 @@ If a table `purchase` had a column `purchase_date_time` of type `timestamptz` (w
    ```
    
 4. The next step is to create some SQL to extract the financial year value from the `purchase_date_time` column into the new `financial_year` column, this could look something like this:
+   ```C#
+    public partial class Add_FinancialYear_Column_To_Purchase : Migration
+    {
+        private const string SetFinancialYear = @"UPDATE TABLE purchase SET financial_year = EXTRACT(year FROM (purchase_date_time + INTERVAL '9 month'));";
+    
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.AddColumn<int>(
+                name: "financial_year",
+                table: "purchase",
+                nullable: false,
+                defaultValue: 0);
+                                
+            migrationBuilder.Sql(SetFinancialYear);
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "financial_year",
+                table: "purchase");
+        }
+    }
+   ```
+
+5. Run `Update-Database` to apply these changes.
