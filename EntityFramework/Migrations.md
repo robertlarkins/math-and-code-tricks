@@ -10,35 +10,35 @@ For example, if the created migration code looks like this:
 ```C#
 public partial class Change_Column_UniqueCode_To_Guid : Migration
 {
-	protected override void Up(MigrationBuilder migrationBuilder)
-	{
-		// Either empty, or automatically generated migration code
-    // to update the database state from the last migration to this one.
-	}
+    protected override void Up(MigrationBuilder migrationBuilder)
+    {
+        // Either empty, or automatically generated migration code
+        // to update the database state from the last migration to this one.
+    }
 
-	protected override void Down(MigrationBuilder migrationBuilder)
-	{
-		// Either empty, or automatically generated migration code
-    // to revert the database state from this migration back to the last one.
-	}
+    protected override void Down(MigrationBuilder migrationBuilder)
+    {
+        // Either empty, or automatically generated migration code
+        // to revert the database state from this migration back to the last one.
+    }
 }
 ```
 and the desire is to convert a string column with guid values in it to a guid column (uuid in postgres), then modify the migration code to look something like this (for a postgres database):
 ```C#
 public partial class Change_Column_UniqueCode_To_Guid : Migration
 {
-  private const string UniqueCodeStringToGuid = @"ALTER TABLE ""user"" ALTER COLUMN unique_code TYPE uuid USING unique_code::uuid;";
-  private const string UniqueCodeGuidToString = @"ALTER TABLE ""user"" ALTER COLUMN unique_code TYPE text USING unique_code::text;";
+    private const string UniqueCodeStringToGuid = @"ALTER TABLE ""user"" ALTER COLUMN unique_code TYPE uuid USING unique_code::uuid;";
+    private const string UniqueCodeGuidToString = @"ALTER TABLE ""user"" ALTER COLUMN unique_code TYPE text USING unique_code::text;";
 
-  protected override void Up(MigrationBuilder migrationBuilder)
-  {
-    migrationBuilder.Sql(UniqueCodeStringToGuid);
-  }
+    protected override void Up(MigrationBuilder migrationBuilder)
+    {
+        migrationBuilder.Sql(UniqueCodeStringToGuid);
+    }
 
-  protected override void Down(MigrationBuilder migrationBuilder)
-  {
-    migrationBuilder.Sql(UniqueCodeGuidToString);
-  }
+    protected override void Down(MigrationBuilder migrationBuilder)
+    {
+        migrationBuilder.Sql(UniqueCodeGuidToString);
+    }
 }
 ```
 In the sql code remember to double quote table and column names that need it, such as if they are uppercase, or are keywords.
@@ -54,3 +54,44 @@ the migration may not be able to automatically run if used in the future due to 
 
 More Info:
  - https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/operations
+
+
+## Custom Mapping of Column to Another Column
+
+If a table `purchase` had a column `purchase_date_time` of type `timestamptz` (which for NodaTime could be OffsetDateTime), and another column `financial_year` of type int was to be added, which is extracted from `purchase_date_time`, then the following steps could be done for EF CodeFirst:
+
+
+1. Add the new property to the entity, this might be a straight FinancialYear column of type `int`, or it might be wrapped in a ValueType.
+   ```C#
+   public FinancialYear FinancialYear { get; private set; } = null!;
+   ```
+
+2. Add the property to `PurchaseConfiguration`:
+   ```C#
+   builder.Property(p => p.FinancialYear)
+       .HasConversion(p => p.Value, p => FinancialYear.Create(p).Value);
+   ```
+
+3. Run `Add-Migration` which will create a migration file similar to this:
+   ```C#
+    public partial class Add_FinancialYear_Column_To_Purchase : Migration
+    {
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.AddColumn<int>(
+                name: "financial_year",
+                table: "purchase",
+                nullable: false,
+                defaultValue: 0);
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "financial_year",
+                table: "purchase");
+        }
+    }
+   ```
+   
+4. The next step is to create some SQL to extract the financial year value from the `purchase_date_time` column into the new `financial_year` column, this could look something like this:
