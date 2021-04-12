@@ -98,7 +98,7 @@ If a table `purchase` had a column `purchase_date_time` of type `timestamptz` (w
    ```C#
     public partial class Add_FinancialYear_Column_To_Purchase : Migration
     {
-        private const string SetFinancialYear = @"UPDATE TABLE purchase SET financial_year = EXTRACT(year FROM (purchase_date_time + INTERVAL '9 month'));";
+        private const string SetFinancialYear = @"UPDATE TABLE purchase SET financial_year = EXTRACT(year FROM (purchase_date_time + INTERVAL '9 months'));";
     
         protected override void Up(MigrationBuilder migrationBuilder)
         {
