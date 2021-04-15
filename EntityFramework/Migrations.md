@@ -1,5 +1,32 @@
 # Migrations
 
+## Change column value
+If a column value needs to be changed, such as a nullable column should have empty string values, then the following can be done:
+
+1. Run `Add-Migration`
+2. Add the SQL code as a const to the Migration, and as a SQL call:
+   ```C#
+   public partial class Set_MyTable_MyColumn_Nulls_To_Empty_String : Migration
+   {
+       private const string SetMyColumnAsEmptyStringWhereNull = @"UPDATE my_table SET my_column = '' WHERE my_column is null;";
+       private const string SetMyColumnAsNullWhereEmptyString = @"UPDATE my_table SET my_column = null WHERE my_column = '';";
+
+       protected override void Up(MigrationBuilder migrationBuilder)
+       {
+           migrationBuilder.Sql(SetMyColumnAsEmptyStringWhereNull);
+       }
+
+       protected override void Down(MigrationBuilder migrationBuilder)
+       {
+           migrationBuilder.Sql(SetMyColumnAsNullWhereEmptyString);
+       }
+   }
+   ```
+
+> Note:
+> In the nullable case, ideally the column would be changed to `nullable = false` first.
+
+
 ## Change column type
 If a column type needs to be changed there are a couple of options.
 The first step is to make modifications to the CodeFirst entities, and run an `Add-Migration`.
