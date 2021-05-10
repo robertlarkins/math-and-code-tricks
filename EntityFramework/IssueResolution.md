@@ -34,9 +34,8 @@ When attaching existing entities, ensure that only one entity instance with a gi
 Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values."
 ```
 
-This appears to occur when the following situations occur:
+This appears to occur (intermittently) when the following situations occur:
  - an entity (lets call it the parent entity) has a static entity as a property
- - the static entity (usually a status or type) references (has a foreign key to) another static entity
  - the parent entity comes from the database
  - the static entity value is updated with the static entity from code
 
@@ -51,3 +50,21 @@ This will be something to investigate further.
 ### The Fix
 The simplest fix is when assigning a new static entity value to the parent property (via a method) is to check if the current value is the same as the new value.
 If they are the same then do not assign the value.
+
+Overriding the `SaveChangesAsync` method to something like this:
+
+```C#
+public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+{
+    IEnumerable<EntityEntry> enumerationEntries = ChangeTracker.Entries()
+        .Where(x => EnumerationTypes.Contains(x.Entity.GetType()));
+
+    foreach (var enumerationEntry in enumerationEntries)
+    {
+        enumerationEntry.State = EntityState.Unchanged;
+    }
+
+    return base.SaveChangesAsync(cancellationToken);
+}
+```
+unfortunately does not solve the problem as the exception gets thrown on the `enumerationEntries` assignment line.
