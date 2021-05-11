@@ -48,7 +48,7 @@ At present I'm unsure of the exact underlying mechanism for why this issue occur
 This will be something to investigate further.
 
 ### The Fix
-The simplest fix is when assigning a new static entity value to the parent property (via a method) is to check if the current value is the same as the new value.
+A stop-gap fix is instead of using the static entity value is to get the value from the database, however, this defeats the purpose of having statically valued entities.
 If they are the same then do not assign the value.
 
 Overriding the `SaveChangesAsync` method to something like this:
