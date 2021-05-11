@@ -68,3 +68,5 @@ public override Task<int> SaveChangesAsync(CancellationToken cancellationToken =
 }
 ```
 unfortunately does not solve the problem as the exception gets thrown on the `enumerationEntries` assignment line.
+
+This appears to be a known issue or feature request in EFCore. The following link has some discussions and relevant links: https://github.com/vkhorikov/DddAndEFCore/issues/10
