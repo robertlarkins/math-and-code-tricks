@@ -148,3 +148,42 @@ If a table `purchase` had a column `purchase_date_time` of type `timestamptz` (w
    ```
 
 5. Run `Update-Database` to apply these changes.
+
+## Map Column from one table to another
+If a property `OccurrenceDateTime` from one class (`Schedule`) has been shifted to another class (`Appointment`), running a migration will cause `OccurrenceDateTime` to be dropped from `Schedule` and added to `Appointment`, loosing the data.
+
+```C#
+protected override void Up(MigrationBuilder migrationBuilder)
+{
+   migrationBuilder.DropColumn(
+       name: "occurrence_date_time",
+       table: "schedule");
+       
+   migrationBuilder.AddColumn<OffsetDateTime>(
+       name: "occurrence_date_time",
+       table: "appointment",
+       nullable: false,
+       defaultValue: new NodaTime.OffsetDateTime(new NodaTime.LocalDateTime(1, 1, 1, 0, 0), NodaTime.Offset.FromHours(0)));
+}
+```
+
+To fix this, rearrange the two migration pieces so that the `AddColumn` is before the `DropColumn`. Then add a Sql line to copy the `occurrence_date_time` from `schedule` to the appropriate column in `appointment`. Then add a `migrationBuilder.Sql("some sql")` to do the copying between the two migration pieces:
+
+```C#
+private const string CopyOccurrenceDateTimeFromScheduleToAppointment = "";
+
+protected override void Up(MigrationBuilder migrationBuilder)
+{
+   migrationBuilder.AddColumn<OffsetDateTime>(
+       name: "occurrence_date_time",
+       table: "appointment",
+       nullable: false,
+       defaultValue: new NodaTime.OffsetDateTime(new NodaTime.LocalDateTime(1, 1, 1, 0, 0), NodaTime.Offset.FromHours(0)));
+
+   migrationBuilder.Sql("");
+
+   migrationBuilder.DropColumn(
+       name: "occurrence_date_time",
+       table: "schedule");
+}
+```
