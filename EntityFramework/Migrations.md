@@ -149,8 +149,10 @@ If a table `purchase` had a column `purchase_date_time` of type `timestamptz` (w
 
 5. Run `Update-Database` to apply these changes.
 
+
 ## Map Column from one table to another
-If a property `OccurrenceDateTime` from one class (`Schedule`) has been shifted to another class (`Appointment`), running a migration will cause `OccurrenceDateTime` to be dropped from `Schedule` and added to `Appointment`, loosing the data.
+
+If a property `OccurrenceDateTime` on the `Schedule` class is to be shifted to another class, `Appointment`, where `Appointment` has a foreign key to `Schedule`, then running a migration will cause `OccurrenceDateTime` to be dropped from `Schedule` and added to `Appointment`, loosing the data.
 
 ```C#
 protected override void Up(MigrationBuilder migrationBuilder)
@@ -167,10 +169,10 @@ protected override void Up(MigrationBuilder migrationBuilder)
 }
 ```
 
-To fix this, rearrange the two migration pieces so that the `AddColumn` is before the `DropColumn`. Then add a Sql line to copy the `occurrence_date_time` from `schedule` to the appropriate column in `appointment`. Then add a `migrationBuilder.Sql("some sql")` to do the copying between the two migration pieces:
+To fix this, rearrange the two migration code blocks so that the `AddColumn` is before the `DropColumn`. Then add a Sql line to copy the `occurrence_date_time` from `schedule` to the appropriate column in `appointment`. Then add a `migrationBuilder.Sql("some sql")` to do the copying between the two migration pieces:
 
 ```C#
-private const string CopyOccurrenceDateTimeFromScheduleToAppointment = "";
+private const string CopyOccurrenceDateTimeFromScheduleToAppointment = "UPDATE appointment SET occurrence_date_time = s.occurrence_date_time FROM schedule s WHERE s.id = schedule_id";
 
 protected override void Up(MigrationBuilder migrationBuilder)
 {
@@ -180,10 +182,12 @@ protected override void Up(MigrationBuilder migrationBuilder)
        nullable: false,
        defaultValue: new NodaTime.OffsetDateTime(new NodaTime.LocalDateTime(1, 1, 1, 0, 0), NodaTime.Offset.FromHours(0)));
 
-   migrationBuilder.Sql("");
+   migrationBuilder.Sql(CopyOccurrenceDateTimeFromScheduleToAppointment);
 
    migrationBuilder.DropColumn(
        name: "occurrence_date_time",
        table: "schedule");
 }
 ```
+
+There will also be a corresponding `Down` method that will need appropriately updated as well.
