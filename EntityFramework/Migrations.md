@@ -191,3 +191,25 @@ protected override void Up(MigrationBuilder migrationBuilder)
 ```
 
 There will also be a corresponding `Down` method that will need appropriately updated as well.
+
+## Renaming Migration
+If a migration has received an incorrect name, the approach for fixing the name depends on whether there are more recent migrations and if it has gone out to any databases.
+
+### Rename Most Recent Migration
+
+### Rename Existing Migration In the Wild
+The worst case is if the migration is _not_ the most recent, and has already been pushed out to client databases.
+These steps require access to the __EFMigrationsHistory table on each of the client databases.
+
+Firstly find the migration .cs file that needs renaming, and generally the datetime on the file will be kept as is.
+There are five locations that need a new name, so if the migration filename is _20210527103152_wrong_name.cs_:
+1. The Migration.cs file name: _20210527103152_The_Right_Name.cs_
+2. The Migration file class name: `public partial class TheRightName : Migration`
+3. The Designer.cs file name: _20210527103152_The_Right_Name.Designer.cs_
+4. The Designer.cs file class name: `partial class TheRightName`
+5. The literal migration id in the Designer.cs: `[Migration("20210527103152_The_Right_Name")]`
+
+Then go to each of the client databases and find the MigrationID in the __EFMigrationsHistory table. Tename the MigrationId to the new name.
+In the above example this would be _20210527103152_wrong_name_ to _20210527103152_The_Right_Name_.
+
+See: https://stackoverflow.com/questions/44200448/how-to-rename-a-migration-in-entity-framework-core
