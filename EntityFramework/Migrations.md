@@ -192,6 +192,14 @@ protected override void Up(MigrationBuilder migrationBuilder)
 
 There will also be a corresponding `Down` method that will need appropriately updated as well.
 
+## Assign Foreign Key Column a New Value
+Sometimes the foreign key value needs to be changed for a migration, for example when a status is to be deleted and needs to be mapped to a new status.
+To update the reference, say for the column `appointment_status_id`, then the following can be added to the migration:
+```C#
+migrationBuilder.Sql("UPDATE appointment SET appointment_status_id = [new_status_id] WHERE appointment_status_id = [old_status_id]");
+```
+
+
 ## Renaming Migration
 If a migration has received an incorrect name, the approach for fixing the name depends on whether there are more recent migrations and if it has gone out to any databases.
 
