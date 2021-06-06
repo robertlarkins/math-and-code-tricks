@@ -26,7 +26,7 @@ E.g.:
 #### Nine
 
 An integer is divisible by 9 if its digits sum to 9.
-Continually sum the digits unitl there is only a single digit left, if this a 9, then the original number is divisible by 9.
+Continually sum the digits until there is only a single digit left, if this is 9, then the original number is divisible by 9.
 
 E.g.:
 ```
