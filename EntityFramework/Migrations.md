@@ -194,9 +194,17 @@ There will also be a corresponding `Down` method that will need appropriately up
 
 ## Assign Foreign Key Column a New Value
 Sometimes the foreign key value needs to be changed for a migration, for example when a status is to be deleted and needs to be mapped to a new status.
-To update the reference, say for the column `appointment_status_id`, then the following can be added to the migration:
+To update the reference, say for the column `appointment_status_id`, then the following examples can be added to the migration to update the database:
 ```C#
-migrationBuilder.Sql("UPDATE appointment SET appointment_status_id = [new_status_id] WHERE appointment_status_id = [old_status_id]");
+migrationBuilder.Sql("UPDATE appointment " +
+                     "SET appointment_status_id = [new_status_id] " +
+                     "WHERE appointment_status_id = [old_status_id]");
+                     
+
+migrationBuilder.Sql("UPDATE appointment " +
+                     "SET appointment_status_id = [new_status_id] " +
+                     "WHERE appointment_status_id " +
+                     "IN ([old_status_id_1], [old_status_id_2])");
 ```
 
 
