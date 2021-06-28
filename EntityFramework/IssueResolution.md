@@ -70,3 +70,12 @@ public override Task<int> SaveChangesAsync(CancellationToken cancellationToken =
 unfortunately does not solve the problem as the exception gets thrown on the `enumerationEntries` assignment line.
 
 This appears to be a known issue or feature request in EFCore. The following link has some discussions and relevant links: https://github.com/vkhorikov/DddAndEFCore/issues/10
+
+## `The entity type requires a primary key`
+The full error message for this is:
+`The entity type 'abcd' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.`
+
+Firstly, if you are adding an entity, and you intend for it to be keyless, then adding `HasNoKey()` to the entity builder is likely needed.  
+However, if you are trying to add a ValueObject as a column to an existing entity and EF Core tries treating the ValueObject as an entity, then ensure:
+ 1. There is FluentAPI Configuration for the existing entity
+ 2. If the Configuration is in its own file, that it is being called by the DbContext
