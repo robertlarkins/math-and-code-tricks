@@ -25,4 +25,4 @@
  - [Angry IP Sanner](https://angryip.org)
 
 ### Compression
- - 7zip
+ - [7zip](https://www.7-zip.org/)
