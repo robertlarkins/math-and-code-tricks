@@ -23,3 +23,6 @@
 
 ### IP Scanning
  - [Angry IP Sanner](https://angryip.org)
+
+### Compression
+ - 7zip
