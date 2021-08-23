@@ -18,3 +18,44 @@ SET latest_start_date_time =
         WHERE a.inspection_id = id),
         '1970-1-1');
 ```
+
+## Select
+
+### Select particular items from joining table
+If there are three tables, _Student_, _Course_, and _Enrollment_, where Enrollment is a joining table between Student and Course.
+There are several approaches for selecting all the Students that are not enrolled in a particular course.
+
+The enrollment joining table has the columns: `id`, `student_id`, and `course_id`.
+The goal is to find students that are not in the course with id = 3. 
+
+__`Not In`__
+
+```sql
+select distinct e.student_id
+from enrollment e
+where e.student_id
+    not in (
+        select e2.student_id
+        from enrollment e2
+        where e2.course_id = 3
+    )
+```
+It is not recommended to use `not in`
+ - https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_NOT_IN
+
+__`Not Exists`__
+
+```sql
+select distinct e.student_id
+from enrollment e
+where
+    not exists (
+        select -- select can be left empty
+        from enrollment e2
+        where e.student_id = e2.student_id
+        and e2.course_id = 3
+    )
+```
+
+This post has some more examples
+- https://stackoverflow.com/questions/19363481/select-rows-which-are-not-present-in-other-table
