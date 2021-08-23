@@ -16,3 +16,8 @@ Alternatively, if you don't want your activity history stored, uncheck *Store my
 See Also:
 - https://winaero.com/blog/disable-timeline-windows-10/ 
 - https://winaero.com/blog/clear-activity-history-windows-10/
+
+## Path Length Limit
+If a file path needs to be longer than 260 characters, then enabling long paths through the registry may fix the issue:
+https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later
+
