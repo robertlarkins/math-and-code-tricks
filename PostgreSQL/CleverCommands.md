@@ -31,13 +31,13 @@ The goal is to find students that are not in the course with id = 3.
 __`Not In`__
 
 ```sql
-select distinct e.student_id
-from enrollment e
-where e.student_id
+select distinct s.id
+from student s
+where s.id
     not in (
-        select e2.student_id
-        from enrollment e2
-        where e2.course_id = 3
+        select e.student_id
+        from enrollment e
+        where e.course_id = 3
     )
 ```
 It is not recommended to use `not in`
@@ -46,14 +46,14 @@ It is not recommended to use `not in`
 __`Not Exists`__
 
 ```sql
-select distinct e.student_id
-from enrollment e
+select distinct s.id
+from student s
 where
     not exists (
         select -- select can be left empty
-        from enrollment e2
-        where e.student_id = e2.student_id
-        and e2.course_id = 3
+        from enrollment e
+        where e.student_id = s.id
+        and e.course_id = 3
     )
 ```
 
