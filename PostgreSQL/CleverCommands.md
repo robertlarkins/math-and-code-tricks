@@ -59,3 +59,10 @@ where
 
 This post has some more examples
 - https://stackoverflow.com/questions/19363481/select-rows-which-are-not-present-in-other-table
+
+
+## Delete
+
+### Delete duplicate rows
+
+The following link contains examples of how to do this: https://www.postgresqltutorial.com/how-to-delete-duplicate-rows-in-postgresql/
