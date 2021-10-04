@@ -1,5 +1,21 @@
 # Querying Database
 
+## EF.Functions
+EF.Functions is a namespace in Entity Framework that provides methods that can be translated to database functions.
+
+For example if you wanted to find names that contain `Jo` in the firstname with any casing:
+```C#
+context.Names.Where(x => x.FirstName.ToLower().Contains("jo")).ToList();
+```
+can be converted to:
+```C#
+context.Names.Where(x => EF.Functions.ILike(x.FirstName, "%Jo%")).ToList();
+```
+which is much faster as it better leverages the built in SQL functions.
+
+See:
+ - https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.ef.functions?view=efcore-5.0
+
 ## With ValueObjects
 
 
@@ -70,9 +86,11 @@ needing to do client-side evaluation.
 > Some ValueObjects, such as ValueObjects for wrapping a DateTime value, do not appear to work in an Entity Framework query, even when using their underlying value.
 > In this situation client-side seems to be the only solution.
 
+
 See:
  - https://stackoverflow.com/questions/58074844/ef-linq-error-after-change-from-dotnet-core-2-2-6-to-3-0-0
  - https://docs.microsoft.com/en-us/ef/core/querying/client-eval
+ - https://www.thecodebuzz.com/query-linq-expression-could-not-be-translated/
 
 
 ### Company Entity and Address ValueObject
