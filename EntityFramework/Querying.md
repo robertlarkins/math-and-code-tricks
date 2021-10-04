@@ -25,7 +25,7 @@ See: https://stackoverflow.com/questions/61691178/no-backing-field-could-be-foun
 > *The Entity Framework LINQ expression*
 > could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to either AsEnumerable(), AsAsyncEnumerable(), ToList(), or ToListAsync().
 
-This occurs because Entity Framework is unable to transform the LINQ query into SQL. With using ValueObjects this can occurs because it is unable to convert the equality comparison into SQL.
+This occurs because Entity Framework is unable to transform the LINQ query into SQL. With using ValueObjects this can occur because it is unable to convert the equality comparison into SQL.
 One fix for this is to modify the query to compare the underlying values, so if the original query looked like this:
 
 ```C#
