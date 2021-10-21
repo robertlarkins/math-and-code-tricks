@@ -2,7 +2,7 @@
 
 ## Find all files containing a given string
 
-This will recursively find all files in the directory it is run in down that contain a given string.
+This will recursively find all files ending is .cs in the directory it is run in down that contain a given string.
 
 ```PowerShell
 Get-ChildItem -Recurse -File -Filter *.cs | Select-String "some_string" -List
