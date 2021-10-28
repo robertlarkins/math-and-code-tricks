@@ -26,3 +26,6 @@
 
 ### Compression
  - [7zip](https://www.7-zip.org/)
+
+### Web Debugging
+ - [Fiddler](https://www.telerik.com/fiddler/fiddler-classic)
