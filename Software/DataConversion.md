@@ -4,6 +4,8 @@
 
 Convert json or json schemas to typesafe code in a variety of languages.
 
+Simply typing `quicktype` in the CLI will provide a list of commands.
+
 links:
  - https://quicktype.io/
  - https://github.com/quicktype/quicktype
