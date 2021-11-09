@@ -1,5 +1,8 @@
 # Http Response Status Codes
 
+Useful Resources:
+ - https://www.loggly.com/blog/http-status-code-diagram/
+
 ## HttpStatus 301 Headers
 A 301 Http status code is _Moved Permamemtly_, which indicates that the requested resource has been definitively moved to the URL given by the Location headers.
 When calling an endpoint that returns a 301, Postman will automatically handshake with the URL provided in the endpoint location,
