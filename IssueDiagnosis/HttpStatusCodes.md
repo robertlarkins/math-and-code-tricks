@@ -21,3 +21,30 @@ See:
  - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
  - https://community.k6.io/t/requests-that-redirect-with-301-response-code-sends-http-requests-without-header/569/2
  - https://stackoverflow.com/a/28671822/1926027
+
+## 503 Service Temporarily Unavailable
+This status occurred when trying to call external APIs from an AWS lambda. The external APIs were available and working fine when called locally (Postman, Visual Studio),
+and also from a temporarily created lambda (using python code) within the same AWS environment. The cause of this was determined by adding the following logging:
+```C#
+var testClient = new HttpClient();
+var apiKey = // Get API key
+testClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", apiKey);
+
+var response = await testClient.GetAsync("https://the.api.url.to.call");
+
+var content = await response.Content.ReadAsStringAsync();
+
+await _logger.Instance.LogInformationAsync("Internal http client start");
+await _logger.Instance.LogInformationAsync("Internal http client response: " + JsonConvert.SerializeObject(response));
+await _logger.Instance.LogInformationAsync("Internal http client response.content: " + JsonConvert.SerializeObject(content));
+await _logger.Instance.LogInformationAsync("Internal http client end");
+```
+with the logging of the content capturing the HTML of a webpage. Copying this HTML, fixing the quotation marks and newlines, saving it to a file called index.html,
+and opening it in a brower showed
+
+> DDos protection by Cloudflare
+> Ray Id: _some identifier_
+
+So what was happening was the external APIs were using Cloudflare, which some how determined that the requests from that one particular lambda was suspicious
+and was essentially blocking the request. This was fixed by getting the owner of the API to disable Cloudflare or change its settings,
+specifically they disabled a feature called _bot fighting_ in Cloudflare.
