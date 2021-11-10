@@ -42,7 +42,7 @@ await _logger.Instance.LogInformationAsync("Internal http client end");
 with the logging of the content capturing the HTML of a webpage. Copying this HTML, fixing the quotation marks and newlines, saving it to a file called index.html,
 and opening it in a brower showed
 
-> DDos protection by Cloudflare
+> DDos protection by Cloudflare  
 > Ray Id: _some identifier_
 
 So what was happening was the external APIs were using Cloudflare, which some how determined that the requests from that one particular lambda was suspicious
