@@ -10,11 +10,14 @@ Displays the help docs about how to use the module.
 
 ## Module Management
 
-### `Install-Module`
-Install a module making it directly available.
-
 ### `Get-InstalledModule`
 Lists the installed modules.
 
+### `Install-Module`
+Install a module making it directly available.
+
+### `Uninstall-Module`
+Uninstall an already installed module.
+
 ### `Remove-Module`
-Removes the given module
+Removes the given module.
