@@ -2,10 +2,18 @@
 
 ## Programs
 
+### Package Managers
+ - [Chocolatey](https://chocolatey.org/)
+   a console based package manager for Windows (it also has a GUI if desired)  
+   Most of the following tools can be installed via Chocolatey
+
 ### Disk Size
  - [WizTree](https://antibody-software.com/web/software/software/wiztree-finds-the-files-and-folders-using-the-most-disk-space-on-your-hard-drive/) - recommended
  - WinDirStat
  - TreeSize
+
+### Version Control
+ - [SourceTree](https://www.sourcetreeapp.com/) (GIT)
 
 ### File Searching
  - [Everything](https://www.voidtools.com/)
@@ -15,11 +23,11 @@
    A no install hardware monitoring software, useful for checking CPU temperature.
 
 ### Media Players
- - VLC Media Player
- - FastStone Image View
+ - [VLC Media Player](https://www.videolan.org/)
+ - [FastStone Image Viewer](https://www.faststone.org/FSViewerDetail.htm)
 
 ### Editors
- - Paint.Net
+ - [Paint.Net](https://www.getpaint.net/)
 
 ### IP Scanning
  - [Angry IP Sanner](https://angryip.org)
@@ -29,3 +37,4 @@
 
 ### Web Debugging
  - [Fiddler](https://www.telerik.com/fiddler/fiddler-classic)
+ - [PostMan](https://www.postman.com/)
