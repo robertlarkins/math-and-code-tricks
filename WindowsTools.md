@@ -7,6 +7,18 @@
    a console based package manager for Windows (it also has a GUI if desired)  
    Most of the following tools can be installed via Chocolatey
 
+#### Chocolatey
+
+Install: https://chocolatey.org/install
+
+Chocolatey programs:
+
+```powershell
+choco install vscode --params "/NoDesktopIcon /NoQuicklaunchIcon"
+choco install ditto
+choco install 7zip
+```
+
 ### Disk Size
  - [WizTree](https://antibody-software.com/web/software/software/wiztree-finds-the-files-and-folders-using-the-most-disk-space-on-your-hard-drive/) - recommended
  - WinDirStat
