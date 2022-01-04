@@ -17,6 +17,7 @@ Chocolatey programs:
 choco install vscode --params "/NoDesktopIcon /NoQuicklaunchIcon"
 choco install ditto
 choco install 7zip
+choco install linqpad`
 ```
 
 ### Disk Size
