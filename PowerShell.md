@@ -2,6 +2,8 @@
 
 ## Shortcuts
 
+Use the following shortcuts in a PowerShell Window.
+
 | Shortcuts     | Description                         |
 | ---           | ---                                 |
 | `Ctrl`+`R`    | Search through previous commands    |
