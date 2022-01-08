@@ -1,5 +1,13 @@
 # PowerShell
 
+## Shortcuts
+
+| Shortcuts     | Description                         |
+| ---           | ---                                 |
+| `Ctrl`+`R`    | Search through previous commands    |
+<br>
+
+
 ## Functions
 
 Function signatures should not be written in the form `MyFunction($param1, $param2)` as when called using `$result = MyFunction(1, 2)`
