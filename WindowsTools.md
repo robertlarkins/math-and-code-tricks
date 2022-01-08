@@ -18,6 +18,7 @@ choco install vscode --params "/NoDesktopIcon /NoQuicklaunchIcon"
 choco install ditto
 choco install 7zip
 choco install linqpad`
+choco install microsoft-windows-terminal
 ```
 
 ### Disk Size
