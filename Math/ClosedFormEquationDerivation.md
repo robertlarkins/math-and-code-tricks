@@ -26,16 +26,64 @@ If a solution doesn't already exist online then the next step is to determine wh
 
 ***How to determine which equation might fit your problem?***
 
-### Example
+### Worked Example
 
-Deriving the closed-form equation for `1+2+3+...+n` can be done by determining that this is a quadratic equation.
+Deriving the closed-form equation for `1+2+3+...+n` can be done by determining that this is a quadratic equation. **(How is this done?)**
 That is the closed-form equation will have a structure of <code>an<sup>2</sup>+bn+c</code>.
-We can then supply some examples from what we are trying to solve:
-<pre><code>3<sup>2</sup>+b3=6
-a4<sup>2</sup>+b4=10
+We can then supply some examples for given cases of `n` and then work through solving these simultanious equations:
+<pre><code>a3<sup>2</sup> + b3 = 6
+a4<sup>2</sup> + b4 = 10
 </code></pre>
 
-Then we can solve these simultaneous equations, first by solving for `a`:
+Then we can solve these simultaneous equations, first by solving for `a`:  
+Using the _elimination method_ we do the following:
+```
+ 9a + 3b =  6
+16a + 4b = 10
+```
+
+then get the `b` components equal:
+```
+4*( 9a + 3b =  6) = 36a + 12b = 24
+3*(16a + 4b = 10) = 48a + 12b = 30
+```
+
+subtract one equation from the other:
+```
+  48a + 12b = 30
+-(36a + 12b = 24)
+-----------------
+  12a       =  6
+```
+
+Then rearrange for `a`, giving
+```
+12a = 6
+  a = 6/12
+  a = 1/2
+```
+
+Using the found value for `a`, we can substitute it back into one of the original equations and solve for `b`
+```
+16a     + 4b = 10
+16(1/2) + 4b = 10
+      8 + 4b = 10
+          4b = 10 - 8
+          4b = 2
+           b = 2/4
+           b = 1/2
+```
+
+Using the found values for `a` and `b`, we can then give the closed-form equation as
+<pre><code>n<sup>2</sup>/2 + n/2
+</code></pre>
+
+Which can be rearranged into the more well known form:
+<pre><code>n<sup>2</sup>/2 + n/2
+(n<sup>2</sup> + n)/2
+n(n + 1)/2
+</code></pre>
+
 
 See Also:
 - https://math.stackexchange.com/questions/183316/how-to-get-to-the-formula-for-the-sum-of-squares-of-first-n-numbers
