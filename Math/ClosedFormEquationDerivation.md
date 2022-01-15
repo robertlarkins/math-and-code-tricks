@@ -26,9 +26,39 @@ If a solution doesn't already exist online then the next step is to determine wh
 
 ***How to determine which equation might fit your problem?***
 
-### Worked Example: `1+2+3+...+n`
+### Worked Example: <code>1+2+3+&#x2026;+n</code>
 
-Deriving the closed-form equation for `1+2+3+...+n` can be done by determining that this is a quadratic equation. **(How is this done?)**
+Deriving the closed-form equation for `1+2+3+...+n` can be done a couple of ways.
+
+#### Approach 1
+
+The most common approach is seeing that adding the first and last number together is the same as adding the second and second to last number, etc.
+eg: `n=6` then `1+2+3+4+5+6` gives `(1+6) + (2+5) + (3+4)`
+With each of these groups being equal with the value `n+1`. Then we just need to figure out the number of groups. When `n` is even there are `n/2` groups.
+So this gives `(n+1)(n/2)`.  
+For the odd case we essentially still have `n/2` groups, as the middle value is half of `n+1`.  
+eg: if `n=5` then we have `1+2+3+4+5`, giving `(1+5) + (2+4) + 3`.
+This is then `(n+1) + (n+1) + (n+1)/2`
+If this is rearranged we get `(n+1)(1+1+1/2) = (n+1)(2.5)` which given `n=5` we can give as `(n+1)(n/2)`.
+This equations is the same as the even case, and it works because the number of groups is `n/2` for when `n` is both even and odd. 
+
+#### Approach 2
+
+A general way of deriving the closed-form equation is first determining that it is a quadratic equation.
+As far as I'm aware there isn't a specific way of determining the equation type of the closed-form solution.
+In this particular case one way to determine it is quadratic is to think of how summation might be laid-out.
+If `n=5` we would have this sort of layout
+
+```
+    1 2 3 4 5
+1 | x
+2 | x x
+3 | x x x
+4 | x x x x
+5 | x x x x x
+```
+where we are summing each `x`. This shows that the summation has some form of <code>n<sup>2</sup></code>.
+
 That is the closed-form equation will have a structure of <code>an<sup>2</sup>+bn+c</code>.
 We can then supply some examples for given cases of `n` and then work through solving these simultanious equations:
 <pre><code>a3<sup>2</sup> + b3 = 6
