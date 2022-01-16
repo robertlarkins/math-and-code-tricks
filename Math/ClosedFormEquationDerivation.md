@@ -14,7 +14,7 @@ See Also:
 ## Derivation
 
 If we wanted to derive the closed-form equation for say a summation, such as `1+2+3+...+n`,
-the first step would be to search on google and see if it has already been solved.
+the first step would be to search on google or [oeis.org](https://oeis.org) and see if it has already been solved.
 
 If a solution doesn't already exist online then the next step is to determine what type the equation might be
 - linear - `y=mx+b` where `m` & `b` are some constant numbers and `y` is a variable which changes with the `x` variable. When graphed they will produce a single line
@@ -25,12 +25,13 @@ If a solution doesn't already exist online then the next step is to determine wh
 - radical
 
 ***How to determine which equation might fit your problem?***
+- https://math.stackexchange.com/questions/183316/how-to-get-to-the-formula-for-the-sum-of-squares-of-first-n-numbers
 
 Then we would want to find the constants of the equation that give us the closed-form equation. This is best demonstrated using worked examples.
 
 ### Worked Example: <code>1+2+3+&#x2026;+n</code>
 
-Deriving the closed-form equation for `1+2+3+...+n` can be done a couple of ways.
+Deriving the closed-form equation for `1+2+3+...+n` (also known as triangular numbers) can be done a couple of ways.
 
 #### Approach 1
 
@@ -117,8 +118,9 @@ n(n + 1)/2
 </code></pre>
 
 
-See Also:
-- https://math.stackexchange.com/questions/183316/how-to-get-to-the-formula-for-the-sum-of-squares-of-first-n-numbers
+### Worked Example: 
+
+
 
 ## Induction
 
