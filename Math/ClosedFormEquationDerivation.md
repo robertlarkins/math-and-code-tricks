@@ -26,6 +26,8 @@ If a solution doesn't already exist online then the next step is to determine wh
 
 ***How to determine which equation might fit your problem?***
 
+Then we would want to find the constants of the equation that give us the closed-form equation. This is best demonstrated using worked examples.
+
 ### Worked Example: <code>1+2+3+&#x2026;+n</code>
 
 Deriving the closed-form equation for `1+2+3+...+n` can be done a couple of ways.
@@ -35,11 +37,11 @@ Deriving the closed-form equation for `1+2+3+...+n` can be done a couple of ways
 The most common approach is seeing that adding the first and last number together is the same as adding the second and second to last number, etc.
 eg: `n=6` then `1+2+3+4+5+6` gives `(1+6) + (2+5) + (3+4)`
 With each of these groups being equal with the value `n+1`. Then we just need to figure out the number of groups. When `n` is even there are `n/2` groups.
-So this gives `(n+1)(n/2)`.  
+So this gives `(n+1)(n/2)`, which can be rearranged into the form `n(n+1)/2`.  
 For the odd case we essentially still have `n/2` groups, as the middle value is half of `n+1`.  
 eg: if `n=5` then we have `1+2+3+4+5`, giving `(1+5) + (2+4) + 3`.
 This is then `(n+1) + (n+1) + (n+1)/2`
-If this is rearranged we get `(n+1)(1+1+1/2) = (n+1)(2.5)` which given `n=5` we can give as `(n+1)(n/2)`.
+If this is rearranged we get `(n+1)(1+1+1/2) = (n+1)(2.5)` which given `n=5` can be formed as `(n+1)(n/2)`.
 This equations is the same as the even case, and it works because the number of groups is `n/2` for when `n` is both even and odd. 
 
 #### Approach 2
