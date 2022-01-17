@@ -23,6 +23,7 @@ If a solution doesn't already exist online then the next step is to determine wh
 - polynomial - this equation type covers any equation that has `x` to an exponent of some level. eg: <code>2x<sup>5</sup>+2x/3+7</code>
 - rational
 - radical
+- exponential
 
 ***How to determine which equation might fit your problem?***
 - https://math.stackexchange.com/questions/183316/how-to-get-to-the-formula-for-the-sum-of-squares-of-first-n-numbers
@@ -118,7 +119,28 @@ n(n + 1)/2
 </code></pre>
 
 
-### Worked Example: 
+### Worked Example: `0,1,1,3,5,11,21,...`
+
+This series comes from [this math.stackexchange question](https://math.stackexchange.com/questions/1068367/finding-a-closed-form-formula-for-a-sequence-that-is-defined-recursively), which provides the following definition for the series:
+
+<pre><code>a<sub>0</sub> = 0, a<sub>1</sub> = 1
+a<sub>n</sub> = a<sub>n-1</sub> + 2a<sub>n-2</sub>
+for n &#x2265; 2
+</code></pre>
+
+This is a recursive series which has the following set of values up to `n = 6`:
+
+| `n` | <code>a<sub>n</sub></code> |
+| --- | ---                        |
+| 0   | 0                          |
+| 1   | 1                          |
+| 2   | 1                          |
+| 3   | 3                          |
+| 4   | 5                          |
+| 5   | 11                         |
+| 6   | 21                         |
+
+
 
 
 
