@@ -193,5 +193,7 @@ a<sub>n</sub> = (2<sup>n</sup> - (-1)<sup>n</sup>)/3
 </code></pre>
 
 
-## Induction
+## Mathematical Induction
 
+Mathematical induction is a way of proving that an equation holds true for every natural number.  
+There are examples online of mathematical induction being applied, so an example wont be demonstrated here.
