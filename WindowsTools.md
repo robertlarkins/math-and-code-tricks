@@ -50,5 +50,11 @@ choco install microsoft-windows-terminal
  - [7zip](https://www.7-zip.org/)
 
 ### Web Debugging
+
+#### Debugging Proxy Server
  - [Fiddler](https://www.telerik.com/fiddler/fiddler-classic)
- - [PostMan](https://www.postman.com/)
+ - [Charles](https://www.charlesproxy.com)
+
+#### API Client
+ - [PostMan](https://www.postman.com)
+ - [Insomnia](https://insomnia.rest)
