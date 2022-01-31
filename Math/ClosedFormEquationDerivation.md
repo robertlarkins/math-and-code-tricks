@@ -172,11 +172,26 @@ where <code>c<sub>0</sub></code> and <code>c<sub>1</sub></code> are the linear c
 
 <pre><code>a<sub>0</sub> = c<sub>0</sub>(-1)<sup>0</sup> + c<sub>1</sub>(2)<sup>0</sup>
 0 = c<sub>0</sub> + c<sub>1</sub>
+c<sub>0</sub> = -c<sub>1</sub>
 
-r<sup>n-(n-2)</sup> = r<sup>n-1-(n-2)</sup> + 2r<sup>n-2-(n-2)</sup>
-r<sup>2</sup> = r + 2
-r<sup>2</sup> - r - 2 = 0
+a<sub>1</sub> = c<sub>0</sub>(-1)<sup>1</sup> + c<sub>1</sub>(2)<sup>1</sup>
+1 = -c<sub>0</sub> + 2c<sub>1</sub>
+c<sub>0</sub> = 2c<sub>1</sub> - 1
+
+-c<sub>1</sub> = 2c<sub>1</sub> - 1
+-2c<sub>1</sub> - c<sub>1</sub> = -1
+-3c<sub>1</sub> = -1
+c<sub>1</sub> = 1/3
+c<sub>0</sub> = -1/3
 </code></pre>
+
+The coefficients <code>c<sub>0</sub> = -1/3</code> and <code>c<sub>1</sub> = 1/3</code> can now be substituted into the original equation:
+
+<pre><code>a<sub>n</sub> = c<sub>0</sub>(-1)<sup>n</sup> + c<sub>1</sub>(2)<sup>n</sup>
+a<sub>n</sub> = (-1/3)(-1)<sup>n</sup> + (1/3)(2)<sup>n</sup>
+a<sub>n</sub> = (2<sup>n</sup> - (-1)<sup>n</sup>)/3
+</code></pre>
+
 
 ## Induction
 
