@@ -128,7 +128,11 @@ a<sub>n</sub> = a<sub>n-1</sub> + 2a<sub>n-2</sub>
 for n &#x2265; 2
 </code></pre>
 
-This is a recursive series which has the following set of values up to `n = 6`:
+The following description is based on [this answer](https://math.stackexchange.com/a/3525522).
+
+Equations with a linear recurrence relation (an equation that relates a term in a sequence to previous terms using recursion) can be deemed exponential if they have constant coefficients that produce exponentially growing terms (the `a` values) in the sequence.
+
+This recursive series has the following set of values up to `n = 6`:
 
 | `n` | <code>a<sub>n</sub></code> |
 | --- | ---                        |
@@ -140,9 +144,39 @@ This is a recursive series which has the following set of values up to `n = 6`:
 | 5   | 11                         |
 | 6   | 21                         |
 
+Because `n` gets used on each recursion and the original coefficients are constant, the closed form equation will be some type of exponential function <code>r<sup>n</sup></code> that relates to `n`. So to begin, let
 
+<code>a<sub>n</sub> = r<sup>n</sup></code>
 
+for some constant `r`, which is to be determined. As we have the recurrence relation, we can substitute it in
 
+<code>r<sup>n</sup> = r<sup>n-1</sup> + 2r<sup>n-2</sup></code>
+
+We then solve for `r`, which as <code>r<sup>n-1</sup></code> is not zero for `n = 2`, we can divide both sides of the equation by it.
+
+<pre><code>r<sup>n</sup>/r<sup>n-2</sup> = (r<sup>n-1</sup> + 2r<sup>n-2</sup>)/r<sup>n-2</sup>
+r<sup>n-(n-2)</sup> = r<sup>n-1-(n-2)</sup> + 2r<sup>n-2-(n-2)</sup>
+r<sup>2</sup> = r + 2
+r<sup>2</sup> - r - 2 = 0
+</code></pre>
+
+This is a quadratic equation that can be rewritten in the form
+
+`(r - 2)(r + 1) = 0`
+
+which shows that `r` has two solutions, `-1` and `2`. Because of this, <code>a<sub>n</sub> = r<sup>n</sup></code> is some linear combination of the powers of each root (`-1` and `2`), meaning
+
+<code>a<sub>n</sub> = c<sub>0</sub>(-1)<sup>n</sup> + c<sub>1</sub>(2)<sup>n</sup></code>
+
+where <code>c<sub>0</sub></code> and <code>c<sub>1</sub></code> are the linear coefficients, and can be found using simultanious equations
+
+<pre><code>a<sub>0</sub> = c<sub>0</sub>(-1)<sup>0</sup> + c<sub>1</sub>(2)<sup>0</sup>
+0 = c<sub>0</sub> + c<sub>1</sub>
+
+r<sup>n-(n-2)</sup> = r<sup>n-1-(n-2)</sup> + 2r<sup>n-2-(n-2)</sup>
+r<sup>2</sup> = r + 2
+r<sup>2</sup> - r - 2 = 0
+</code></pre>
 
 ## Induction
 
