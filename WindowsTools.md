@@ -19,6 +19,7 @@ choco install ditto
 choco install 7zip
 choco install linqpad
 choco install microsoft-windows-terminal
+choco install docker-desktop
 ```
 
 ### Disk Size
