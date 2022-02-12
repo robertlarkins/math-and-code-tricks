@@ -47,3 +47,8 @@ Other distros need the WSLU package to be installed.
 
 
 ### Keeping Ubuntu up-to-date
+
+Ubuntu can be kept up-to-date in the terminal by doing the following:
+- `sudo apt update` to check for package updates
+- `apt list --upgradable` to list all packages that can be upgraded 
+- `sudo apt upgrade` to upgrade all the packages
