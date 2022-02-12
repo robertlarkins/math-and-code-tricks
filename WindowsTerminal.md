@@ -1,14 +1,12 @@
 # Windows Terminal
 
+## Administrator
+
+Currently Windows Terminal can't run both standard and admin tabs at the same time.
+If you need a tab to have an admin terminal then run Windows Terminal in administrative mode.
+
+
 ## Install
+
 This is installed through the Windows store.
 
-## Global Settings
-To modify click the dropdown arrow > Settings
-
-Where profiles can be set
-
-## Personalised Settings
-To create personalised settings for Windows Terminal click the dropdown arrow, hold alt and click Settings.
-
-### Transparancy
