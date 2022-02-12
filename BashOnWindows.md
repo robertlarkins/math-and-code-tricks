@@ -12,10 +12,8 @@ This can be installed either through the Microsoft Store or via chocolatey
 
 ## Git Bash
 
-Turn on Windows Subsystem for Linux
-
-Go to Control Panel > Programs > Turn Windows features on or off  
-And ensure Windows Subsystem for Linux is turned on.
+Git Bash emulates a bash terminal on Windows to provides access to unix commands and the Git CLI.
+It comes included as part of the [Git for Windows](https://gitforwindows.org/) install.
 
 Git Bash can be added to Windows Terminal by going to Settings > Add a new profile  
 Then click \+ New empty profile
@@ -27,9 +25,25 @@ Then click \+ New empty profile
 
 ## Linux Bash
 
-Install LTS version of Ubuntu from the Microsoft Store (or your preferred distro)
-Open the distro
+Turn on Windows Subsystem for Linux
 
-Powershell `wpl` or `bash`
+Go to Control Panel > Programs > Turn Windows features on or off  
+And ensure Windows Subsystem for Linux is turned on.
+
+Install the latest Ubuntu LTS (long term support) version from the Microsoft Store (or your preferred distro, but these instructions will use Ubuntu).
+
+There are different ways of opening the Ubuntu shell terminal:
+- From Microsoft Store
+- Ubuntu shortcut in the Start menu
+- `ubuntu2004` (the 20.04 distro version) from powershell or cmd
+- `wsl` or `bash` from powershell or cmd
+- From Windows Terminal - access is automatically added once Ubuntu is installed
+
+
+### Bash Commands
+
+`wslfetch` provides details about WSL, this is built into the Ubuntu WSL distro.
+Other distros need the WSLU package to be installed.
+
 
 ### Keeping Ubuntu up-to-date
