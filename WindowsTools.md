@@ -20,7 +20,12 @@ choco install 7zip
 choco install linqpad
 choco install microsoft-windows-terminal
 choco install docker-desktop
+choco install sourcetree
+choco install everything --params "/start-menu-shortcuts /run-on-system-startup"
 ```
+
+- List of programs installed by chocolatey: `choco list --localonly` 
+- Upgrade all programs: `choco upgrade all`
 
 ### Disk Size
  - [WizTree](https://antibody-software.com/web/software/software/wiztree-finds-the-files-and-folders-using-the-most-disk-space-on-your-hard-drive/) - recommended
