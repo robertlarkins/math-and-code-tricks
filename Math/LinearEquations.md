@@ -47,6 +47,17 @@ then the slope (or gradient) `m` is given as
 <code>m = (y<sub>2</sub> - y<sub>1</sub>) / (x<sub>2</sub> - x<sub>1</sub>)</code>
 
 
+## Calculating the Constant `c`
+
+The constant in the linear equation is the `y` value when `x = 0`.
+Therefore, if both a point <code>(x<sub>1</sub>, y<sub>1</sub>)</code> is on the line and the slope `m` is known,
+then `c` can be given by rearranging the point-slope form into
+
+<code>c = y<sub>1</sub> - mx<sub>1</sub></code>
+
+knowing that `y = c` when `x = 0`.
+
+
 ## Vertical Line
 
 When the line is vertical, then `x` can only have one value and is effectively constant, while `y` can be any value.
