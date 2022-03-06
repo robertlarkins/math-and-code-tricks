@@ -3,7 +3,7 @@
 A linear equation is an equation for a straight line, and can be expressed in a variety of forms.
 However, they can all be rearranged into the slope-intercept form.
 
-**Slope-Intercept Form**
+### Slope-Intercept Form
 
 `y = mx + c`
 
@@ -13,21 +13,21 @@ However, they can all be rearranged into the slope-intercept form.
 `c` is a constant for the y-intercept
 
 
-**Point-Slope Form**
+### Point-Slope Form
 
 <code>y - y<sub>1</sub> = m(x - x<sub>1</sub>)</code>
 
 where <code>(x<sub>1</sub>, y<sub>1</sub>)</code> is a point on the line.
 
 
-**General Form**
+### General Form
 
 `Ax + By + C = 0`
 
 `A` and `B` cannot both be 0.
 
 
-**As a Function**
+### As a Function
 
 `f(x) = some equation`
 
