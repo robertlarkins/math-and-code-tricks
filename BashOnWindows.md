@@ -36,8 +36,8 @@ There are different ways of opening the Ubuntu shell terminal:
 - From Microsoft Store
 - Ubuntu shortcut in the Start menu
 - `ubuntu2004` (the 20.04 distro version) from powershell or cmd
-- `wsl` or `bash` from powershell or cmd
-- From Windows Terminal - access is automatically added once Ubuntu is installed
+- `wsl -r <distro-name>` from powershell, eg: `wsl -r Ubuntu-20.04`
+- From Windows Terminal as a new tab - access is automatically added once Ubuntu is installed
 
 
 ### Upgrade from WSL 1 to WSL 2
@@ -76,6 +76,22 @@ Git appears to be automatically installed (at least with Ubuntu).
 There are different options for where git repos can be stored, but for convenience just put it in a folder (eg: `~/dev`) in your home directory.
 
 Doing a `git clone` will (if necessary) request your username and password to access this repo.
+
+
+## Running in VSCode
+
+Files and Folders in a WSL Distro can be opened in VSCode in Windows.
+
+- Firstly install the *Remote - WSL* extension in VSCode.
+- From the Distro terminal navigate to the desired directory and enter `code .` to open the folder in VSCode.
+To open a file enter `code <file-name>`.
+
+If the VSCode session is connected to the Linux distro it will show the Distro name in the bottom left.
+
+The VSCode terminal will open to the distro terminal.
+
+See:
+- https://docs.docker.com/desktop/windows/wsl/#develop-with-docker-and-wsl-2
 
 
 ### Keeping Ubuntu up-to-date
