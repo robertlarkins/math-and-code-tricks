@@ -25,7 +25,7 @@ Then click \+ New empty profile
 
 ## Linux Bash
 
-Turn on Windows Subsystem for Linux
+Turn on Windows Subsystem for Linux (WSL)
 
 Go to Control Panel > Programs > Turn Windows features on or off  
 And ensure Windows Subsystem for Linux is turned on.
@@ -39,6 +39,16 @@ There are different ways of opening the Ubuntu shell terminal:
 - `wsl` or `bash` from powershell or cmd
 - From Windows Terminal - access is automatically added once Ubuntu is installed
 
+
+### Upgrade from WSL 1 to WSL 2
+
+Get the list of installed Linux distributions by running `wsl -l -v` in PowerShell, this also lists the wsl version used for each.
+
+To upgrade version to WSL 2 run: `wsl --set-version <distro-name> 2`.  
+So if the distro name is `Ubuntu-20.04` then this will be `wsl --set-version Ubuntu-20.04 2`
+
+See:
+- https://docs.microsoft.com/en-us/windows/wsl/install
 
 ### Bash Commands
 
