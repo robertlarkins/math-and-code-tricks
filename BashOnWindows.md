@@ -49,12 +49,24 @@ So if the distro name is `Ubuntu-20.04` then this will be `wsl --set-version Ubu
 
 See:
 - https://docs.microsoft.com/en-us/windows/wsl/install
-- https://docs.docker.com/desktop/windows/wsl/
+
 
 ### Bash Commands
 
 `wslfetch` provides details about WSL, this is built into the Ubuntu WSL distro.
 Other distros need the WSLU package to be installed.
+
+
+### Docker Desktop Integration
+
+The Linux distro can be Ubuntu can be integrated with Docker Desktop to allow docker to be run from the distro using Docker Desktop. This is done by going
+
+> Settings > Resources > WSL Integration
+
+and enabling the desired distro, then _Apply & Restart_.
+
+
+- https://docs.docker.com/desktop/windows/wsl/
 
 
 ### Keeping Ubuntu up-to-date
