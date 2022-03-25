@@ -49,6 +49,7 @@ So if the distro name is `Ubuntu-20.04` then this will be `wsl --set-version Ubu
 
 See:
 - https://docs.microsoft.com/en-us/windows/wsl/install
+- https://docs.docker.com/desktop/windows/wsl/
 
 ### Bash Commands
 
