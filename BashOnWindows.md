@@ -65,8 +65,17 @@ The Linux distro can be Ubuntu can be integrated with Docker Desktop to allow do
 
 and enabling the desired distro, then _Apply & Restart_.
 
-
+See:
 - https://docs.docker.com/desktop/windows/wsl/
+
+
+### Running GIT
+
+Git appears to be automatically installed (at least with Ubuntu).
+
+There are different options for where git repos can be stored, but for convenience just put it in a folder (eg: `~/dev`) in your home directory.
+
+Doing a `git clone` will (if necessary) request your username and password to access this repo.
 
 
 ### Keeping Ubuntu up-to-date
