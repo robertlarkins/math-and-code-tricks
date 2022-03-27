@@ -13,5 +13,10 @@ See
 
 ## `No database provider has been configured for this DbContext.`
 
+See:
+- https://www.koskila.net/fixing-no-database-provider-has-been-configured-for-this-dbcontext-in-entity-framework-core/
+
 
 ## `No suitable constructor was found for entity type 'ForeignKey'.`
+
+Domain entities used as DB models need a protected parameterless constructor.
