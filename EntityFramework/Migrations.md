@@ -1,6 +1,15 @@
 # Migrations
 
+## Add Migration
+
+`dotnet ef migrations add InitialCreate`
+
+See:
+- https://docs.microsoft.com/en-us/ef/core/cli/dotnet
+
+
 ## Change column value
+
 If a column value needs to be changed, such as a nullable column should have empty string values, then the following can be done:
 
 1. Run `Add-Migration`
