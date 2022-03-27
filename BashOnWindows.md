@@ -78,7 +78,17 @@ There are different options for where git repos can be stored, but for convenien
 Doing a `git clone` will (if necessary) request your username and password to access this repo.
 
 
-## Running in VSCode
+### Accessing Windows Files
+
+Windows drives and files can be accessed from WSL by using mount points. These are automatically created and have the path `/mnt/<drive-letter>/`.
+
+For example, to access `C:\` to the terminal navigate to `cd /mnt/c`
+
+See:
+- https://docs.microsoft.com/en-us/windows/wsl/faq#how-do-i-access-my-c--drive-
+
+
+### Running in VSCode
 
 Files and Folders in a WSL Distro can be opened in VSCode in Windows.
 
