@@ -13,3 +13,5 @@ See
 
 ## `No database provider has been configured for this DbContext.`
 
+
+## `No suitable constructor was found for entity type 'ForeignKey'.`
