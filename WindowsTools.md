@@ -22,6 +22,7 @@ choco install microsoft-windows-terminal
 choco install docker-desktop
 choco install sourcetree
 choco install everything --params "/start-menu-shortcuts /run-on-system-startup"
+choco install paint.net
 ```
 
 - List of programs installed by chocolatey: `choco list --localonly` 
