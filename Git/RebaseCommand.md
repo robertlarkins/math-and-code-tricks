@@ -9,7 +9,7 @@
 
 Rebase will operate on all the commits after the `<base>` commit, which can be specified uisng:
 - the commit's hash
-- `Head~<commits-to-go-back>`
+- `HEAD~N` - where `~N` means rebase the last `N` commits (`N` must be a number, eg: `HEAD~7`)
 
 In the editor that appears put the appropriate commands next to the commits to change.
 
