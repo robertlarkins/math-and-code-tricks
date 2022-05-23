@@ -110,3 +110,4 @@ Ubuntu can be kept up-to-date in the terminal by doing the following:
 - `sudo apt update` to check for package updates
 - `apt list --upgradable` to list all packages that can be upgraded 
 - `sudo apt upgrade` to upgrade all the packages
+- `sudo apt-get autoremove` remove packages that were automatically installed dependencies for other packages that are no longer needed
