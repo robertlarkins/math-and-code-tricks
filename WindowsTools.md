@@ -23,6 +23,7 @@ choco install docker-desktop
 choco install sourcetree
 choco install everything --params "/start-menu-shortcuts /run-on-system-startup"
 choco install paint.net
+choco install vlc
 ```
 
 - List of programs installed by chocolatey: `choco list --localonly` 
