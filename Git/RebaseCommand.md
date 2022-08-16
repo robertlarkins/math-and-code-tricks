@@ -24,3 +24,7 @@ Make changes to the files that need fixing for this commit.
 `git rebase --continue`
 
 `git push --force-with-lease`
+
+## Add changes to an earlier commit
+
+Follow the instructions here: https://stackoverflow.com/a/2719636/1926027
