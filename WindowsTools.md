@@ -24,6 +24,7 @@ choco install sourcetree
 choco install everything --params "/start-menu-shortcuts /run-on-system-startup"
 choco install paint.net
 choco install vlc
+choco install beyondcompare
 ```
 
 - List of programs installed by chocolatey: `choco list --localonly` 
