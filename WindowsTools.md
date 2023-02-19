@@ -26,6 +26,7 @@ choco install paint.net
 choco install vlc
 choco install beyondcompare
 choco install postgit
+choco install powershell-core
 ```
 
 - List of programs installed by chocolatey: `choco list --localonly` 
