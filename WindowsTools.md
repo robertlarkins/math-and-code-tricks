@@ -27,6 +27,7 @@ choco install vlc
 choco install beyondcompare
 choco install postgit
 choco install powershell-core
+choco install screentogif
 ```
 
 - List of programs installed by chocolatey: `choco list --localonly` 
@@ -53,6 +54,8 @@ choco install powershell-core
 
 ### Editors
  - [Paint.Net](https://www.getpaint.net/)
+ - [ScreenToGif](https://www.screentogif.com/)
+   Tool for recording your screen to a gif.
 
 ### IP Scanning
  - [Angry IP Sanner](https://angryip.org)
