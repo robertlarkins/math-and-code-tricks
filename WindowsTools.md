@@ -1,13 +1,11 @@
 # Windows Tools
 
-## Programs
-
-### Package Managers
+## Package Managers
  - [Chocolatey](https://chocolatey.org/)
    a console based package manager for Windows (it also has a GUI if desired)  
    Most of the following tools can be installed via Chocolatey
 
-#### Chocolatey
+### Chocolatey
 
 Install: https://chocolatey.org/install
 
@@ -33,43 +31,57 @@ choco install screentogif
 - List of programs installed by chocolatey: `choco list --localonly` 
 - Upgrade all programs: `choco upgrade all`
 
-### Disk Size
+## Disk Size
  - [WizTree](https://antibody-software.com/web/software/software/wiztree-finds-the-files-and-folders-using-the-most-disk-space-on-your-hard-drive/) - recommended
  - WinDirStat
  - TreeSize
 
-### Version Control
+
+## Version Control
  - [SourceTree](https://www.sourcetreeapp.com/) (GIT)
 
-### File Searching
+
+## File Searching
  - [Everything](https://www.voidtools.com/)
 
-### Hardware Monitoring
+
+## Hardware Monitoring
  - [Open Hardware Monitor](https://openhardwaremonitor.org/)  
    A no install hardware monitoring software, useful for checking CPU temperature.
 
-### Media Players
+
+## Media Players
  - [VLC Media Player](https://www.videolan.org/)
  - [FastStone Image Viewer](https://www.faststone.org/FSViewerDetail.htm)
 
-### Editors
+
+## Editors
  - [Paint.Net](https://www.getpaint.net/)
  - [ScreenToGif](https://www.screentogif.com/)
    Tool for recording your screen to a gif.
 
-### IP Scanning
+
+## IP Scanning
  - [Angry IP Sanner](https://angryip.org)
 
-### Compression
+
+## Compression
  - [7zip](https://www.7-zip.org/)
 
-### Web Debugging
+
+## Web Debugging
 
 
-#### Debugging Proxy Server
+## Debugging Proxy Server
  - [Fiddler](https://www.telerik.com/fiddler/fiddler-classic)
  - [Charles](https://www.charlesproxy.com)
 
-#### API Client
+
+## API Client
  - [PostMan](https://www.postman.com)
  - [Insomnia](https://insomnia.rest)
+
+
+## Audio
+
+### VB-Cable
