@@ -109,6 +109,8 @@ Do the following to setup VB-Cable and reroute microphone audio:
    1. Check that the Input and Output are the same and match the microphone's specs (they should based on the above steps)
    2. Follow the instructions here to set the Max Latency: https://vb-audio.com/Cable/VBCABLE_SystemSettings.pdf
       For a 48000Hz microphone and an Internal SR of 96000Hz, then the Max Latency should be set to either 3072 or 4096 smp (I opted for 4096).
-10. Restart the PC.
+10. Restart the computer.
 
 These changes should stop programs changing the gain on your microphone.
+
+To uninstall rerun VBCABLE_Setup_x64.exe in administrator mode, and click **Remove Drivers**. Then restart the computer.
