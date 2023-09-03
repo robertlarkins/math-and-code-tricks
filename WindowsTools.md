@@ -99,7 +99,7 @@ Do the following to setup VB-Cable and reroute microphone audio:
 5. Go to the Recording tab and open the properties of desired input microphone
    1. Go to the **Advanced** tab and not down the audio details under **Default Format**
    2. Go to the **Listen** tab and check **Listen to this device**
-   3. Change **Playback through this device** to `CABLE Input (VB-Audio Virtual Cable).
+   3. Change **Playback through this device** to `CABLE Input (VB-Audio Virtual Cable)`.
    4. Click **Apply**, then **OK**.
 6. Open the `CABLE Output` device's properties
    1. Go to the Advanced tab and ensure the Default Format matches the microphone.
@@ -115,3 +115,11 @@ Do the following to setup VB-Cable and reroute microphone audio:
 These changes should stop programs changing the gain on your microphone.
 
 To uninstall rerun VBCABLE_Setup_x64.exe in administrator mode, and click **Remove Drivers**. Then restart the computer.
+
+**Trouble Shooting**
+If the virtual audio cable stops working see if the cable has been muted:
+1. Go into Sound.
+2. Go to CABLE Input properties.
+3. Go to the Levels tab.
+4. Check CABLE Input is not muted.
+5. Repeat the same steps for CABLE Output under the Recording tab.
