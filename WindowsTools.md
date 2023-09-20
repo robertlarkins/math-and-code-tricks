@@ -123,3 +123,9 @@ If the virtual audio cable stops working see if the cable has been muted:
 3. Go to the Levels tab.
 4. Check CABLE Input is not muted.
 5. Repeat the same steps for CABLE Output under the Recording tab.
+
+Or try unplugging the mic and replugging it in.
+
+Another option to check is that the mic proper still has **Listen to this device** checked. And **Playback through this device** is still set to the CABLE input device. This is under the mic's Listen tab.
+
+
