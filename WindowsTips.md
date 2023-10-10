@@ -32,3 +32,9 @@ The process locking a file can be found by:
 3. Search for locked file name
 4. This will list processes using the file
 5. Either close the process normally or right-click and End Process.
+
+
+## Windows Startup
+
+If Windows is taking a while to login, then one option is to go to the `%localAppData%/temp` folder and delete its contents. Especially if it is taking up a lot of space.
+
