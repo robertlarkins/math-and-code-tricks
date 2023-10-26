@@ -97,7 +97,7 @@ Do the following to setup VB-Cable and reroute microphone audio:
 3. Click **Install Driver**.
 4. Go to **Control Panel > Sound** to see the list of playback and recording devices
 5. Go to the Recording tab and open the properties of desired input microphone
-   1. Go to the **Advanced** tab and not down the audio details under **Default Format**
+   1. Go to the **Advanced** tab and note down the audio details under **Default Format**
    2. Go to the **Listen** tab and check **Listen to this device**
    3. Change **Playback through this device** to `CABLE Input (VB-Audio Virtual Cable)`.
    4. Click **Apply**, then **OK**.
