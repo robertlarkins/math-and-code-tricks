@@ -31,6 +31,7 @@ choco install screentogif
 - List of programs installed by chocolatey: `choco list --localonly` 
 - Upgrade all programs: `choco upgrade all`
 
+
 ## Disk Size
  - [WizTree](https://antibody-software.com/web/software/software/wiztree-finds-the-files-and-folders-using-the-most-disk-space-on-your-hard-drive/) - recommended
  - WinDirStat
@@ -81,6 +82,12 @@ choco install screentogif
  - [PostMan](https://www.postman.com)
  - [Insomnia](https://insomnia.rest)
 
+
+## Mouse
+
+### Evoluent VerticalMouse 4
+
+There is an install for the support software on chocolatey, but it is an old version. So will use the version from the website: https://evoluent.com/support/download/
 
 ## Audio
 
