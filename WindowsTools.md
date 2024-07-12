@@ -23,7 +23,7 @@ choco install everything --params "/start-menu-shortcuts /run-on-system-startup"
 choco install paint.net
 choco install vlc
 choco install beyondcompare
-choco install postgit
+choco install poshgit
 choco install powershell-core
 choco install screentogif
 ```
